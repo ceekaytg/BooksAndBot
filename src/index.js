@@ -15,6 +15,7 @@ const createMessageText = book => {
 console.log("BOT_TOKEN",BOT_TOKEN)
 console.log("PORT",PORT)
 console.log("URL",URL)
+console.log("WS",`${URL}/bot${BOT_TOKEN}`)
 const bot = new Telegraf(BOT_TOKEN);
 bot.start((ctx) => ctx.reply('Hello'))
 bot.help((ctx) => ctx.reply('Help message'))
