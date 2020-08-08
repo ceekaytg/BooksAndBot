@@ -22,7 +22,7 @@ bot.help((ctx) => ctx.reply('Help message'))
 bot.on('message', async ctx => {
   console.log("ctx",ctx)
   console.log("ctx.message",ctx.message)
-  const searchResults = await searchBooks(ctx.message);
+  const searchResults = await searchBooks(ctx.message.text);
   console.log("searchResults",searchResults)
   const results =
     searchResults && searchResults.length
