@@ -52,6 +52,27 @@ bot.on('message', async ctx => {
   ctx.reply(results[0]);
 })
 bot.action('delete', ({ deleteMessage }) => deleteMessage())
+bot.on("inline_query", async ctx => {
+  let query = ctx.inlineQuery.query
+  const results = [{
+id: 19,
+type: 'article',
+title: 'Selections from Harry Potter and the Order of the Phoenix: Piano Solos',
+description: 'by John   Williams',
+thumb_url: 'https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png',
+input_message_content: {
+message_text: '\n' +
+'<strong>Selections from Harry Potter and the Order of the Phoenix: Piano Solos</strong>\n' +
+'<em>by John   Williams</em>\n' +
+'<a href="https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png">&#8205;</a>',
+parse_mode: 'HTML'
+},
+reply_markup: { inline_keyboard: [              {
+                text: "Show on Goodreads",
+                url: 'http://www.google.com'
+              }] }
+  }]
+})
 /*
 bot.on("inline_query", async ctx => {
   const searchResults = await searchBooks(ctx.inlineQuery.query);
