@@ -18,40 +18,8 @@ console.log("URL",URL)
 console.log("WS",`${URL}/bot${BOT_TOKEN}`)
 const bot = new Telegraf(BOT_TOKEN);
 bot.start((ctx) => ctx.reply('Hello'))
-bot.help((ctx) => ctx.reply('Help message'))
-bot.on('message', async ctx => {
-  console.log("ctx",ctx)
-  console.log("ctx.message",ctx.message)
-  const searchResults = await searchBooks(ctx.message.text);
-  console.log("searchResults",searchResults)
-  const results =
-    searchResults && searchResults.length
-      ? searchResults.map((book, id) => ({
-        id,
-        type: "article",
-        title: book.title,
-        description: book.author,
-        thumb_url: book.thumb_url,
-        input_message_content: {
-          message_text: createMessageText(book),
-          parse_mode: "HTML"
-        },
-        reply_markup: {
-          inline_keyboard: [
-            [
-              {
-                text: "Show on Goodreads",
-                url: book.url
-              }
-            ]
-          ]
-        }
-      }))
-      : [];
-  console.log("results",results)
-  ctx.reply(results[0]);
-})
-bot.action('delete', ({ deleteMessage }) => deleteMessage())
+bot.help((ctx) => ctx.reply('User in inline mode only'))
+
 
 bot.on("inline_query", async ctx => {
   const searchResults = await searchBooks(ctx.inlineQuery.query);
