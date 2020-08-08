@@ -49,7 +49,7 @@ bot.on('message', async ctx => {
       }))
       : [];
   console.log("results",results)
-  ctx.reply(results);
+  ctx.reply(results[0]);
 })
 bot.action('delete', ({ deleteMessage }) => deleteMessage())
 /*
