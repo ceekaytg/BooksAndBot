@@ -20,7 +20,10 @@ const bot = new Telegraf(BOT_TOKEN);
 bot.start((ctx) => ctx.reply('Hello'))
 bot.help((ctx) => ctx.reply('Help message'))
 bot.on('message', async ctx => {
+  console.log("ctx",ctx)
+  console.log("ctx.message",ctx.message)
   const searchResults = await searchBooks(ctx.message);
+  console.log("searchResults",searchResults)
   const results =
     searchResults && searchResults.length
       ? searchResults.map((book, id) => ({
@@ -45,6 +48,7 @@ bot.on('message', async ctx => {
         }
       }))
       : [];
+  console.log("results",results)
   ctx.reply(results);
 })
 bot.action('delete', ({ deleteMessage }) => deleteMessage())
