@@ -8,7 +8,7 @@
     "build": "babel src --out-dir dist",
     "serve": "node dist/index.js"
   },
-  "author": "dmtrbrl <dmytro.barylo@gmail.com> (https://github.com/dmtrbrl)",
+  "author": "ck <ck@chandankr.com> (https://github.com/ceekaytg)",
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
