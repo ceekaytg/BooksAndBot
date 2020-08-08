@@ -12,7 +12,9 @@ const createMessageText = book => {
 <em>${book.author}</em>
 <a href="${book.cover_url}">&#8205;</a>`;
 };
-
+console.log("BOT_TOKEN",BOT_TOKEN)
+console.log("PORT",PORT)
+console.log("URL",URL)
 const bot = new Telegraf(BOT_TOKEN);
 bot.on("inline_query", async ctx => {
   const searchResults = await searchBooks(ctx.inlineQuery.query);
